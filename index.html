@@ -1,81 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tip Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-    <div class="calculator-container bg-white rounded-2xl shadow-xl max-w-md w-full p-6">
-        <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Tip Calculator</h1>
-        
-        <div class="space-y-6">
-            <!-- Bill Amount -->
-            <div>
-                <label for="bill" class="block text-sm font-medium text-gray-700 mb-1">Bill Amount</label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
-                    <input type="number" id="bill" class="w-full pl-8 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="0.00">
-                </div>
-            </div>
-            
-            <!-- Tip Percentage -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-3">Select Tip Percentage</label>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    <button class="tip-btn active bg-teal-600 text-white py-3 rounded-lg font-medium hover:bg-teal-700 transition" data-percent="5">5%</button>
-                    <button class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition" data-percent="10">10%</button>
-                    <button class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition" data-percent="15">15%</button>
-                    <button class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition" data-percent="20">20%</button>
-                    <button class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition" data-percent="25">25%</button>
-                    <div class="relative">
-                        <input type="number" id="custom-tip" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="Custom">
-                        <span class="absolute right-3 top-3 text-gray-500">%</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Number of People -->
-            <div>
-                <label for="people" class="block text-sm font-medium text-gray-700 mb-1">Number of People</label>
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.98 5.98 0 00-1.154-3.5l-.618-.8A4 4 0 0116 13v5z" />
-                        </svg>
-                    </span>
-                    <input type="number" id="people" class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="1" min="1">
-                </div>
-            </div>
-            
-            <!-- Results -->
-            <div class="bg-gray-50 p-5 rounded-xl">
-                <div class="flex justify-between items-center mb-4">
-                    <div>
-                        <h2 class="text-gray-700 font-medium">Tip Amount</h2>
-                        <p class="text-sm text-gray-500">per person</p>
-                    </div>
-                    <span id="tip-amount" class="text-3xl font-bold text-teal-600">$0.00</span>
-                </div>
-                
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h2 class="text-gray-700 font-medium">Total</h2>
-                        <p class="text-sm text-gray-500">per person</p>
-                    </div>
-                    <span id="total-amount" class="text-3xl font-bold text-teal-600">$0.00</span>
-                </div>
-            </div>
-            
-            <!-- Reset Button -->
-            <button id="reset" class="w-full bg-teal-600 text-white py-3 rounded-lg font-medium hover:bg-teal-700 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                Reset
-            </button>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div
+      class="calculator-container bg-white rounded-2xl shadow-xl max-w-md w-full p-6"
+    >
+      <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Tip Calculator
+      </h1>
+
+      <div class="space-y-6">
+        <!-- Bill Amount -->
+        <div>
+          <label for="bill" class="block text-sm font-medium text-gray-700 mb-1"
+            >Bill Amount</label
+          >
+          <div class="relative">
+            <span
+              class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500"
+              >$</span
+            >
+            <input
+              type="number"
+              id="bill"
+              class="w-full pl-8 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              placeholder="0.00"
+            />
+          </div>
         </div>
+
+        <!-- Tip Percentage -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-3"
+            >Select Tip Percentage</label
+          >
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <button
+              class="tip-btn active bg-teal-600 text-white py-3 rounded-lg font-medium hover:bg-teal-700 transition"
+              data-percent="5"
+            >
+              5%
+            </button>
+            <button
+              class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+              data-percent="10"
+            >
+              10%
+            </button>
+            <button
+              class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+              data-percent="15"
+            >
+              15%
+            </button>
+            <button
+              class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+              data-percent="20"
+            >
+              20%
+            </button>
+            <button
+              class="tip-btn bg-gray-100 text-gray-800 py-3 rounded-lg font-medium hover:bg-gray-200 transition"
+              data-percent="25"
+            >
+              25%
+            </button>
+            <div class="relative">
+              <input
+                type="number"
+                id="custom-tip"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                placeholder="Custom"
+              />
+              <span class="absolute right-3 top-3 text-gray-500">%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Number of People -->
+        <div>
+          <label
+            for="people"
+            class="block text-sm font-medium text-gray-700 mb-1"
+            >Number of People</label
+          >
+          <div class="relative">
+            <span
+              class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v1h8v-1zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-1a5.98 5.98 0 00-1.154-3.5l-.618-.8A4 4 0 0116 13v5z"
+                />
+              </svg>
+            </span>
+            <input
+              type="number"
+              id="people"
+              class="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+              placeholder="1"
+              min="1"
+            />
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="bg-gray-50 p-5 rounded-xl">
+          <div class="flex justify-between items-center mb-4">
+            <div>
+              <h2 class="text-gray-700 font-medium">Tip Amount</h2>
+              <p class="text-sm text-gray-500">per person</p>
+            </div>
+            <span id="tip-amount" class="text-3xl font-bold text-teal-600"
+              >$0.00</span
+            >
+          </div>
+
+          <div class="flex justify-between items-center">
+            <div>
+              <h2 class="text-gray-700 font-medium">Total</h2>
+              <p class="text-sm text-gray-500">per person</p>
+            </div>
+            <span id="total-amount" class="text-3xl font-bold text-teal-600"
+              >$0.00</span
+            >
+          </div>
+        </div>
+
+        <!-- Reset Button -->
+        <button
+          id="reset"
+          class="w-full bg-teal-600 text-white py-3 rounded-lg font-medium hover:bg-teal-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled
+        >
+          Reset
+        </button>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
