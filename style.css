@@ -1,33 +1,40 @@
 /* Additional custom styles if needed */
 .tip-btn.active {
-    background-color: #0d9488;
+  background-color: #0d9488;
 }
 #reset:not(:disabled) {
-    transform: scale(1.02);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #reset:active:not(:disabled) {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 /* Animation for results */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#tip-amount, #total-amount {
-    animation: fadeIn 0.3s ease-out;
+#tip-amount,
+#total-amount {
+  animation: fadeIn 0.3s ease-out;
 }
 
 /* Responsive adjustments */
 @media (max-width: 400px) {
-    .calculator-container {
-        padding: 1rem;
-    }
-    
-    .tip-btn {
-        padding: 0.75rem;
-        font-size: 0.875rem;
-    }
+  .calculator-container {
+    padding: 1rem;
+  }
+
+  .tip-btn {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
 }
