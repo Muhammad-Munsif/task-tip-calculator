@@ -1,4 +1,4 @@
-  <script>
+
     document.addEventListener("DOMContentLoaded", function () {
       // DOM Elements
       const billInput = document.getElementById("bill");
@@ -179,4 +179,3 @@
       // Initial calculation
       validateAndCalculate();
     });
-  </script>
